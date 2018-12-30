@@ -63,8 +63,12 @@ void publish_scan(ros::Publisher *pub,
     scan_msg.header.frame_id = frame_id;
     scan_count++;
 
-    scan_msg.angle_min =  M_PI - angle_min;
-    scan_msg.angle_max =  M_PI - angle_max;
+    //scan_msg.angle_min =  M_PI - angle_min;
+    //scan_msg.angle_max =  M_PI - angle_max;
+    //https://answers.ros.org/question/211985/laser_scan_matcher-error/
+    scan_msg.angle_min = -1*(M_PI - angle_min);
+    scan_msg.angle_max = M_PI - angle_min;
+
     scan_msg.angle_increment = 
         (scan_msg.angle_max - scan_msg.angle_min) / (double)(node_count-1);
 

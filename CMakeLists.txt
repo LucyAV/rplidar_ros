@@ -3,6 +3,9 @@ project(rplidar_ros)
 
 set(RPLIDAR_SDK_PATH "./sdk/")
 
+include_directories(/opt/ros/kinetic/include)
+
+
 FILE(GLOB RPLIDAR_SDK_SRC 
   "${RPLIDAR_SDK_PATH}/src/arch/linux/*.cpp"
   "${RPLIDAR_SDK_PATH}/src/hal/*.cpp"
